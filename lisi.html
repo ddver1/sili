@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 开启移动端缩放功能（关键），同时适配视口 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0">
+    <title>电子名片 | 可画嵌入版</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 10px;
+            background: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        /* 核心：精准匹配Canva设计比例，彻底消除黑边 */
+        .canva-card-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%; /* 全屏显示，无宽度限制 */
+            height: auto; /* 取消固定比例，避免黑边 */
+            box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        /* iframe铺满容器，高度自适应内容，无黑边 */
+        .canva-card-iframe {
+            width: 100%;
+            height: calc(100vh - 40px); /* 高度适配屏幕，无多余空间 */
+            border: none;
+            display: block;
+        }
+        /* 移动端微调：减小边距，最大化显示区域 */
+        @media (max-width: 767px) {
+            body {
+                padding: 5px;
+            }
+            .canva-card-iframe {
+                height: calc(100vh - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="canva-card-container">
+        <iframe class="canva-card-iframe"
+            src="https://www.canva.cn/design/DAHEKsGaAbU/toOH-Vij1t_8w9DpoxiRXw/view?embed" 
+            allowfullscreen="allowfullscreen" allow="fullscreen">
+        </iframe>
+    </div>
+    <!-- 隐藏原链接（如需保留可取消注释） -->
+ </body>
+</html>
